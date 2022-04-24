@@ -1,10 +1,19 @@
 "use strict";
 
 const newsContainer = document.querySelector(".news-container");
+const form = document.getElementById("form");
+const title = document.querySelector(".add-news__title");
+const description = document.querySelector(".add-news__description");
+const uploadImage = document.getElementById("upload");
+const previewImage = document.getElementById("preview-image");
+const modal = document.querySelector(".add-news__modal");
+const addNewBtn = document.querySelector(".add-news__button");
+const closeBtn = document.querySelector(".add-news__close");
 
 console.log(newsArray);
 
-function displayNews() {
+// display news
+const displayNews = () => {
   newsArray.forEach((newsItem) => {
     const newsItemContent = createElement("div", "news-item");
     newsItemContent.innerHTML = `
@@ -18,12 +27,14 @@ function displayNews() {
 `;
     newsContainer.appendChild(newsItemContent);
   });
-}
+};
+
 // clean and add news
-function cleanAndAddNews() {
+const cleanAndAddNews = () => {
   newsContainer.textContent = "";
   displayNews();
-}
+};
+
 cleanAndAddNews();
 
 // generate today's date
@@ -34,11 +45,22 @@ let yyyy = today.getFullYear();
 today = `${mm} ${dd}, ${yyyy}`;
 console.log(today);
 
-const form = document.getElementById("form");
-const title = document.querySelector(".add-news__title");
-const description = document.querySelector(".add-news__description");
-const uploadImage = document.getElementById("upload");
-const previewImage = document.getElementById("preview-image");
+// open modal
+addNewBtn.onclick = () => {
+  modal.style.display = "block";
+};
+
+// close modal
+closeBtn.onclick = () => {
+  modal.style.display = "none";
+};
+
+// click outside modal to close
+window.onclick = (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
 
 // convert image into a string
 uploadImage.addEventListener("change", (event) => {
@@ -49,13 +71,23 @@ uploadImage.addEventListener("change", (event) => {
   reader.readAsDataURL(event.target.files[0]);
 });
 
+// clean form after submit
 const cleanForm = () => {
   form.reset();
   cleanAndAddNews();
   previewImage.src = "";
   window.scrollTo(0, 0);
+  modal.style.display = "none";
+  swal({
+    title: "Done!",
+    text: "News has been published.",
+    icon: "success",
+    timer: 2500,
+    button: false,
+  });
 };
 
+// add news
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const title = event.target.title.value;
