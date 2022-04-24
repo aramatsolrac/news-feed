@@ -1,1 +1,13 @@
 @use "./../global" as *;
+@use "./../global" as *;
+
+.header {
+  &__wrapper {
+    @include flex(row, center, space-between);
+  }
+  &__menu {
+    &-icon {
+      // color: red;
+    }
+  }
+}
