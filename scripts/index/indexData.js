@@ -3,7 +3,7 @@
 let newsArray = [
   {
     title: "EFT VS Wire Transfers: What's the Difference?",
-    timestamp: "2022/04/18",
+    timestamp: "1649986800000",
     author: "Ryleigh Stangness",
     thumbnail: "./../../assets/images/news/20220418-post.jpeg",
     description:
@@ -11,14 +11,15 @@ let newsArray = [
   },
   {
     title: "What You Need To Know About The New April 2022 Interchange Rates",
-    timestamp: "2022/04/12",
+    timestamp: "1649725600000",
     author: "Ryleigh Stangness",
-    thumbnail: "./../../assets/images/news/20220412-post.jpeg",
+    thumbnail: "./../../assets/images/news/20220412-post.gif",
     description:
       "Let's look at the increases, decreases and new interchange rates this April 2022 to see how merchants will be impacted and where they can save.",
   },
   {
     title: "High-Risk Merchants: Find The Processor for You",
+    timestamp: "1649293600000",
     author: "Ryleigh Stangness",
     thumbnail: "./../../assets/images/news/20220407-post.jpeg",
     description:
