@@ -1,1 +1,7 @@
 @use "./partials/main" as *;
+
+.addNews {
+  &__required {
+    border: 1px solid red;
+  }
+}
