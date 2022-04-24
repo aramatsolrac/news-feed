@@ -5,7 +5,7 @@
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
+    // padding-top: 50px;
     left: 0;
     top: 0;
     width: 100%;
@@ -17,9 +17,10 @@
     &-content {
       background-color: white;
       margin: auto;
-      padding: 20px;
+      // padding: 20px;
       border: 1px solid lightgray;
       width: 100%;
+      height: 100%;
     }
   }
   @keyframes fadeIn {
@@ -40,4 +41,43 @@
       cursor: pointer;
     }
   }
+
+  &__button {
+    position: fixed;
+    bottom: 15px;
+    right: 10px;
+    border-radius: 50%;
+    border: none;
+    padding: 0.7rem;
+    &-add {
+      display: flex;
+    }
+    &-edit {
+      display: none;
+    }
+  }
+}
+
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+.swal-button--confirm {
+  background-color: lightgreen;
+}
+
+.swal-button--cancel {
+  background-color: lightgrey;
+}
+
+.swal-button--deny {
+  background-color: lightsalmon;
+}
+
+.swal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
