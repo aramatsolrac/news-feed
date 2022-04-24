@@ -98,4 +98,13 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+.header__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.addNews__required {
+  border: 1px solid red;
 }/*# sourceMappingURL=index.css.map */
