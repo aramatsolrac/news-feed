@@ -69,14 +69,14 @@
                 <ul class="add-news__list">
                   <li>
                     <label class="add-news__label" for="title">Title</label>
-                    <input
+                    <textarea
                       class="add-news__title"
                       type="text"
                       id="title"
                       name="title"
                       value=""
                       placeholder="Enter a title"
-                    />
+                    ></textarea>
                   </li>
                   <li>
                     <label class="add-news__label" for="description"
@@ -102,7 +102,11 @@
                       accept="image/*"
                     />
                     <img id="preview-image" alt="" />
-                    <button id="publish" class="addNews__publish" type="submit">
+                    <button
+                      id="publish"
+                      class="add-news__publish"
+                      type="submit"
+                    >
                       Publish
                     </button>
                   </li>
@@ -112,7 +116,12 @@
           </section>
         </div>
       </div>
-      <button class="add-news__button">Add News</button>
+      <div>
+        <button class="add-news__button">
+          <i class="fas fa-plus add-news__button-add" aria-hidden="true"></i>
+          <i class="fas fa-pen add-news__button-edit" aria-hidden="true"></i>
+        </button>
+      </div>
     </main>
     <script src="./scripts/utils.js"></script>
     <script src="./scripts/index/indexData.js"></script>
