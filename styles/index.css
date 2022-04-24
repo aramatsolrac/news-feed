@@ -99,6 +99,16 @@ select {
     scroll-behavior: auto !important;
   }
 }
+.header {
+  display: block;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+  padding: 0.5rem;
+}
 .header__wrapper {
   display: flex;
   flex-direction: row;
@@ -109,7 +119,6 @@ select {
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 100px;
   left: 0;
   top: 0;
   width: 100%;
@@ -123,9 +132,9 @@ select {
 .add-news__modal-content {
   background-color: white;
   margin: auto;
-  padding: 20px;
   border: 1px solid lightgray;
   width: 100%;
+  height: 100%;
 }
 @-webkit-keyframes fadeIn {
   from {
@@ -150,4 +159,42 @@ select {
 .add-news__close:hover, .add-news__close:focus {
   color: gray;
   cursor: pointer;
+}
+.add-news__button {
+  position: fixed;
+  bottom: 15px;
+  right: 10px;
+  border-radius: 50%;
+  border: none;
+  padding: 0.7rem;
+}
+.add-news__button-add {
+  display: flex;
+}
+.add-news__button-edit {
+  display: none;
+}
+
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+.swal-button--confirm {
+  background-color: lightgreen;
+}
+
+.swal-button--cancel {
+  background-color: lightgrey;
+}
+
+.swal-button--deny {
+  background-color: lightsalmon;
+}
+
+.swal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=index.css.map */
