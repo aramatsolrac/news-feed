@@ -10,12 +10,14 @@
       sizes="32x32"
       href="./assets/icons/hIcon.svg"
     />
-    <title>The Helcim News.</title>
     <!-- font awesome icons -->
     <script
       src="https://kit.fontawesome.com/19dc0097e6.js"
       crossorigin="anonymous"
     ></script>
+    <!-- sweet alert library -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>The Helcim News.</title>
     <!-- style -->
     <link rel="stylesheet" href="./styles/index.css" />
   </head>
@@ -52,48 +54,65 @@
       <section class="news-container">
         <!-- populate news section via JS -->
       </section>
-      <section class="add-news__form">
-        <form id="form" action="#" method="POST" enctype="multipart/form-data">
-          <section>
-            <ul class="add-news__list">
-              <li>
-                <label class="add-news__label" for="title">Title</label>
-                <input
-                  class="add-news__title"
-                  type="text"
-                  id="title"
-                  name="title"
-                  value=""
-                  placeholder="Enter a title"
-                />
-              </li>
-              <li>
-                <label class="add-news__label" for="description"
-                  >Description</label
-                >
-                <textarea
-                  class="add-news__description"
-                  id="description"
-                  name="description"
-                  rows="4"
-                  cols="30"
-                  placeholder="Description"
-                  spellcheck="true"
-                ></textarea>
-              </li>
-              <!-- Upload image -->
-              <li class="add-news__upload">
-                <label for="upload">Choose an image to upload</label>
-                <input id="upload" type="file" name="upload" accept="image/*" />
-                <img id="preview-image" alt="" />
-                <button id="publish" class="addNews__publish" type="submit">
-                  Publish
-                </button>
-              </li>
-            </ul>
+      <!-- add news modal -->
+      <div class="add-news__modal">
+        <div class="add-news__modal-content">
+          <i class="fas fa-times add-news__close"></i>
+          <section class="add-news__form">
+            <form
+              id="form"
+              action="#"
+              method="POST"
+              enctype="multipart/form-data"
+            >
+              <section>
+                <ul class="add-news__list">
+                  <li>
+                    <label class="add-news__label" for="title">Title</label>
+                    <input
+                      class="add-news__title"
+                      type="text"
+                      id="title"
+                      name="title"
+                      value=""
+                      placeholder="Enter a title"
+                    />
+                  </li>
+                  <li>
+                    <label class="add-news__label" for="description"
+                      >Description</label
+                    >
+                    <textarea
+                      class="add-news__description"
+                      id="description"
+                      name="description"
+                      rows="4"
+                      cols="30"
+                      placeholder="Description"
+                      spellcheck="true"
+                    ></textarea>
+                  </li>
+                  <!-- upload image -->
+                  <li class="add-news__upload">
+                    <label for="upload">Choose an image to upload</label>
+                    <input
+                      id="upload"
+                      type="file"
+                      name="upload"
+                      accept="image/*"
+                    />
+                    <img id="preview-image" alt="" />
+                    <button id="publish" class="addNews__publish" type="submit">
+                      Publish
+                    </button>
+                  </li>
+                </ul>
+              </section>
+            </form>
           </section>
-        </form>
-      </section>
+        </div>
+      </div>
+      <button class="add-news__button">Add News</button>
     </main>
     <script src="./scripts/utils.js"></script>
     <script src="./scripts/index/indexData.js"></script>
