@@ -1,6 +1,6 @@
 "use strict";
 
-const newsContainer = document.querySelector(".news-container");
+const newsContainer = document.querySelector(".news__container");
 const form = document.getElementById("form");
 const title = document.querySelector(".add-news__title");
 const description = document.querySelector(".add-news__description");
@@ -8,26 +8,33 @@ const uploadImage = document.getElementById("upload");
 const previewImage = document.getElementById("preview-image");
 const modal = document.querySelector(".add-news__modal");
 const addNewBtn = document.querySelector(".add-news__button");
-const closeBtn = document.querySelector(".add-news__close");
+const closeBtn = document.querySelector(".add-news__buttons-close");
 const header = document.querySelector(".header");
-const publishBtn = document.querySelector(".add-news__publish");
-const editBtn = document.querySelector(".add-news__button-edit");
-const addBtn = document.querySelector(".add-news__button-add");
+const publishBtn = document.querySelector(".add-news__buttons-publish");
+const addNewsBtn = document.querySelector(".add-news__add");
+const editIconBtn = document.querySelector(".add-news__button-edit");
+const addIconBtn = document.querySelector(".add-news__button-add");
 
 console.log(newsArray);
 
 // display news
 const displayNews = () => {
   newsArray.forEach((newsItem) => {
-    const newsItemContent = createElement("div", "news-item");
+    const newsItemContent = createElement("div", "news__item");
     newsItemContent.innerHTML = `
-    <div class="news-item-thumbnail">
-        <img src="${newsItem.thumbnail}" alt="${newsItem.title}">
+    <div class="news__thumbnail">
+        <img class="news__img" src="${newsItem.thumbnail}" alt="${
+      newsItem.title
+    }">
     </div>
-    <h2>${newsItem.title}</h2>
-    <p>${newsItem.description}</p>
-    <p class="news-item-author">${newsItem.author}</p>
-    <p>${formatDate(newsItem.timestamp)}</p>
+    <div class="news__content">
+      <h2 class="news__title">${newsItem.title}</h2>
+      <p class="news__description">${newsItem.description}</p>
+      <div class="news__footer">
+        <p class="news__author">${newsItem.author}</p>
+        <p class="news__date">${formatDate(newsItem.timestamp)}</p>
+      </div>
+    </div>
 `;
     newsContainer.appendChild(newsItemContent);
   });
@@ -115,7 +122,7 @@ addNewBtn.onclick = () => {
 
 // close modal
 closeBtn.onclick = (event) => {
-  console.log(form);
+  event.preventDefault();
   if (
     form.title.value === "" &&
     form.description.value === "" &&
@@ -124,19 +131,17 @@ closeBtn.onclick = (event) => {
     modal.style.display = "none";
     header.style.display = "block";
   } else {
-    editBtn.style.display = "flex";
-    addBtn.style.display = "none";
     swal({
-      title: "Do you want to save your changes and edit them later?",
+      title: "Save draft for later?",
       text: "If you don't save, your changes will be lost.",
       buttons: ["Don't Save", "Save"],
       buttons: {
         cancel: true,
         deny: {
-          text: "Don't save",
+          text: "Delete",
           value: "deny",
         },
-        confirm: "Save",
+        confirm: "Save draft",
       },
     }).then((result) => {
       console.log(result);
@@ -150,6 +155,9 @@ closeBtn.onclick = (event) => {
         });
         modal.style.display = "none";
         header.style.display = "block";
+        editIconBtn.style.display = "flex";
+        addIconBtn.style.display = "none";
+        addNewBtn.style.backgroundColor = "#ffd494";
       } else if (result === "deny") {
         swal({
           title: "Not saved!",
@@ -158,10 +166,9 @@ closeBtn.onclick = (event) => {
           button: false,
           timer: 2300,
         });
-        modal.style.display = "none";
-        header.style.display = "block";
-        editBtn.style.display = "none";
-        addBtn.style.display = "flex";
+        editIconBtn.style.display = "none";
+        addIconBtn.style.display = "flex";
+        addNewBtn.style.backgroundColor = "#815af0";
         cleanForm();
       }
     });
