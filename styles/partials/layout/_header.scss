@@ -9,13 +9,19 @@
   right: 0;
   left: 0;
   background-color: white;
-  padding: 0.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(122.42deg, #faefff 21.38%, #efefff 69.42%);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
   &__wrapper {
     @include flex(row, center, space-between);
   }
   &__menu {
+    @include flex(column, flex-end, flex-end);
+
     &-icon {
-      // color: red;
+      height: 0.7rem;
+      color: $color-text-primary;
     }
   }
 }
