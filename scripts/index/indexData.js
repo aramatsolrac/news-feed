@@ -7,7 +7,7 @@ let newsArray = [
     author: "Ryleigh Stangness",
     thumbnail: "./../../assets/images/news/20220418-post.jpeg",
     description:
-      "EFT (PAD) or classic wire transfer?” And which one should you choose for your business or personal banking needs? Read on to find out more about these two payment types.",
+      "EFT (PAD) or classic wire transfer? And which one should you choose for your business or personal banking needs? Read on to find out more about these two payment types.",
   },
   {
     title: "What You Need To Know About The New April 2022 Interchange Rates",
