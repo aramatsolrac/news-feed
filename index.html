@@ -17,16 +17,16 @@
     ></script>
     <!-- sweet alert library -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>The Helcim News.</title>
+    <title>The Helcim News</title>
     <!-- style -->
     <link rel="stylesheet" href="./styles/index.css" />
   </head>
   <body>
-    <!-- main menu -->
+    <!-- header -->
     <header id="home" class="header">
       <nav class="header__wrapper">
         <div class="header__menu">
-          <i class="fas fa-bars fa-2x header__menu-icon" aria-hidden="true"></i>
+          <i class="fas fa-bars fa-lg header__menu-icon" aria-hidden="true"></i>
         </div>
         <div class="header__logo">
           <h1 class="header__title">
@@ -39,25 +39,26 @@
           </h1>
         </div>
         <div class="header__menu">
-          <i class="fas fa-user fa-2x header__menu-icon" aria-hidden="true"></i>
+          <i class="fas fa-user fa-lg header__menu" aria-hidden="true"></i>
         </div>
       </nav>
     </header>
 
     <!-- hero -->
-    <section>
-      <div>
-        <p>The Helcim <scan>News</scan>.</p>
+    <section class="hero">
+      <div class="hero__content">
+        <h2 class="hero__title">
+          The Helcim <scan class="hero__title-accent">News.</scan>
+        </h2>
       </div>
     </section>
     <main>
-      <section class="news-container">
+      <section class="news__container">
         <!-- populate news section via JS -->
       </section>
       <!-- add news modal -->
       <div class="add-news__modal">
         <div class="add-news__modal-content">
-          <i class="fas fa-times add-news__close"></i>
           <section class="add-news__form">
             <form
               id="form"
@@ -66,6 +67,19 @@
               enctype="multipart/form-data"
             >
               <section>
+                <ul class="add-news__buttons">
+                  <li><a href="" class="add-news__buttons-close">Cancel</a></li>
+                  <li>
+                    <button
+                      id="publish"
+                      class="add-news__buttons-publish"
+                      type="submit"
+                    >
+                      Publish
+                    </button>
+                  </li>
+                </ul>
+
                 <ul class="add-news__list">
                   <li>
                     <label class="add-news__label" for="title">Title</label>
@@ -88,27 +102,29 @@
                       name="description"
                       rows="4"
                       cols="30"
-                      placeholder="Description"
+                      placeholder="Enter a description"
                       spellcheck="true"
                     ></textarea>
                   </li>
                   <!-- upload image -->
                   <li class="add-news__upload">
-                    <label for="upload">Choose an image to upload</label>
+                    <label for="upload" class="add-news__label"
+                      >Choose an image to upload</label
+                    >
+                    <div class="add-news__preview">
+                      <img
+                        id="preview-image"
+                        class="add-news__preview-img"
+                        alt=""
+                      />
+                    </div>
                     <input
                       id="upload"
                       type="file"
                       name="upload"
                       accept="image/*"
+                      class="add-news__preview-input"
                     />
-                    <img id="preview-image" alt="" />
-                    <button
-                      id="publish"
-                      class="add-news__publish"
-                      type="submit"
-                    >
-                      Publish
-                    </button>
                   </li>
                 </ul>
               </section>
@@ -118,8 +134,14 @@
       </div>
       <div>
         <button class="add-news__button">
-          <i class="fas fa-plus add-news__button-add" aria-hidden="true"></i>
-          <i class="fas fa-pen add-news__button-edit" aria-hidden="true"></i>
+          <i
+            class="fas fa-plus add-news__button-add fa-lg"
+            aria-hidden="true"
+          ></i>
+          <i
+            class="fas fa-pen add-news__button-edit fa-lg"
+            aria-hidden="true"
+          ></i>
         </button>
       </div>
     </main>
