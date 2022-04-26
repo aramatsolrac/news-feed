@@ -11,7 +11,7 @@
   &__title {
     @include flex(row, center, center);
     font-family: "Red Hat Display", sans-serif;
-    font-size: 32px;
+    font-size: 2rem;
     color: $color-text-primary;
     &-accent {
       margin-left: 0.4rem;
