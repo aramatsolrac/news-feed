@@ -2,23 +2,23 @@
 
 .swal-title {
   font-family: "Helvetica Neue", sans-serif;
-  color: #292043;
+  color: $color-text-primary;
 }
 
 .swal-text {
   font-family: "Helvetica Neue", sans-serif;
-  color: #635c7f;
+  color: $color-text-secondary;
 }
 .swal-button {
-  padding: 7px 19px;
-  font-size: 11px;
+  padding: 0.4375rem 1.1875rem;
+  font-size: 0.6875rem;
   font-family: "Helvetica Neue", sans-serif;
 }
 
 .swal-button--confirm {
   color: #6387ef;
   background-color: #ebf0ff;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
 }
 
 .swal-button--cancel {
