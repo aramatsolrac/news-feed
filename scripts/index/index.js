@@ -98,6 +98,7 @@ const closeImage = () => {
   }
   previewImage.style.visibility = "hidden";
   closeImageIcon.style.visibility = "hidden";
+  previewImage.src = "";
 };
 
 closeImageIcon.addEventListener("click", closeImage);
@@ -107,7 +108,7 @@ const cleanForm = () => {
   cleanAndAddNews();
   closeImage();
   form.reset();
-  // form.upload.value = "";
+  form.upload.value = "";
   window.scrollTo(0, 0);
   modal.style.display = "none";
   modal.classList.remove("modal__add");
