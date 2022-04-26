@@ -1,0 +1,38 @@
+@use "./../global" as *;
+
+.swal-title {
+  font-family: "Helvetica Neue", sans-serif;
+  color: #292043;
+}
+
+.swal-text {
+  font-family: "Helvetica Neue", sans-serif;
+  color: #635c7f;
+}
+.swal-button {
+  padding: 7px 19px;
+  font-size: 11px;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.swal-button--confirm {
+  color: #6387ef;
+  background-color: #ebf0ff;
+  border-radius: 5px;
+}
+
+.swal-button--cancel {
+  background-color: rgb(231, 230, 230);
+  color: rgb(143, 140, 140);
+}
+
+.swal-button--deny {
+  background-color: #f4dbdf;
+  color: #f27389;
+}
+
+.swal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
