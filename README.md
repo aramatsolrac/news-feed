@@ -1,4 +1,4 @@
-# <p  align="center" style="font-size: 28px; " >The Helcim <scan style="color: #815af0">_News_</scan>.</p>
+# <p  align="center" style="font-size: 28px; " >The Helcim <scan style="color: #815af0">_News_.</scan></p>
 
 It is a mobile news feed of a hypothetical social network.
 
