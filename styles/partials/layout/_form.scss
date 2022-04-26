@@ -113,7 +113,7 @@
       left: 0.5rem;
       cursor: pointer;
       &:hover {
-        filter: brightness(0) invert(0);
+        filter: brightness(0) invert(0.3);
       }
     }
   }
