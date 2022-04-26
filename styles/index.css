@@ -456,7 +456,7 @@ select {
   border-radius: 2rem;
   border: none;
   opacity: 1;
-  padding: 0.4rem 1rem;
+  padding: 0.3rem 1rem;
   cursor: pointer;
 }
 .form__buttons-publish:hover {
