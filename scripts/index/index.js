@@ -1,21 +1,17 @@
 "use strict";
-
+const header = document.querySelector(".header");
+const modal = document.querySelector(".modal");
 const newsContainer = document.querySelector(".news__container");
 const form = document.getElementById("form");
-const title = document.querySelector(".add-news__title");
-const description = document.querySelector(".add-news__description");
+const title = document.querySelector(".form__title");
+const description = document.querySelector(".form__description");
 const uploadImage = document.getElementById("upload");
 const previewImage = document.getElementById("preview-image");
-const modal = document.querySelector(".add-news__modal");
-const addNewBtn = document.querySelector(".add-news__button");
-const closeBtn = document.querySelector(".add-news__buttons-close");
-const header = document.querySelector(".header");
-const publishBtn = document.querySelector(".add-news__buttons-publish");
-const addNewsBtn = document.querySelector(".add-news__add");
-const editIconBtn = document.querySelector(".add-news__button-edit");
-const addIconBtn = document.querySelector(".add-news__button-add");
-
-console.log(newsArray);
+const closeBtn = document.querySelector(".form__buttons-close");
+const publishBtn = document.querySelector(".form__buttons-publish");
+const addNewBtn = document.querySelector(".modal__button");
+const editIconBtn = document.querySelector(".modal__button-edit");
+const addIconBtn = document.querySelector(".modal__button-add");
 
 // display news
 const displayNews = () => {
@@ -51,10 +47,12 @@ cleanAndAddNews();
 // convert image into a string
 uploadImage.addEventListener("change", (event) => {
   const reader = new FileReader();
+
   reader.addEventListener("load", () => {
     previewImage.src = reader.result;
     console.log("Image changed");
   });
+
   reader.readAsDataURL(event.target.files[0]);
 });
 
@@ -118,16 +116,20 @@ form.addEventListener("submit", (event) => {
 addNewBtn.onclick = () => {
   modal.style.display = "block";
   header.style.display = "none";
+  modal.classList.add("modal__open");
 };
 
 // close modal
 closeBtn.onclick = (event) => {
   event.preventDefault();
+
   if (
     form.title.value === "" &&
     form.description.value === "" &&
     form.upload.value === ""
   ) {
+    modal.classList.remove("modal__add");
+    modal.classList.add("modal__open");
     modal.style.display = "none";
     header.style.display = "block";
   } else {
@@ -166,6 +168,7 @@ closeBtn.onclick = (event) => {
           button: false,
           timer: 2300,
         });
+
         editIconBtn.style.display = "none";
         addIconBtn.style.display = "flex";
         addNewBtn.style.backgroundColor = "#815af0";
