@@ -1,8 +1,22 @@
 // colours base;
-$color-background-primary: #fff;
 $color-text-primary: #292043;
 $color-text-secondary: #635c7f;
 $color-text-tertiary: #815af0;
+$color-disabled: #ced4da;
+$color-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+$color-background-primary: #fff;
+$color-background-secondary: linear-gradient(
+  122.42deg,
+  #faefff 21.38%,
+  #efefff 69.42%
+);
+$color-confirm-primary: #6387ef;
+$color-confirm-secondary: #ebf0ff;
+$color-deny-primary: #f27389;
+$color-deny-secondary: #f4dbdf;
+$color-cancel-primary: rgb(143, 140, 140);
+$color-cancel-secondary: rgb(231, 230, 230);
+$color-liked: #d22d2d;
 
 // responsive design
 $tablet-breakpoint: 768px;
