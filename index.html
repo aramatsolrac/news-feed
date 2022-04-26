@@ -21,6 +21,7 @@
     <!-- style -->
     <link rel="stylesheet" href="./styles/index.css" />
   </head>
+
   <body>
     <!-- header -->
     <header id="home" class="header">
@@ -48,25 +49,26 @@
     <section class="hero">
       <div class="hero__content">
         <h2 class="hero__title">
-          The Helcim <scan class="hero__title-accent">News.</scan>
+          The Helcim <span class="hero__title-accent">News.</span>
         </h2>
       </div>
     </section>
+
     <main>
-      <section class="news__container">
+      <div class="news__container">
         <!-- populate news section via JS -->
-      </section>
+      </div>
       <!-- add news modal -->
       <div class="modal">
         <div class="modal__content">
-          <section class="form">
+          <div class="form">
             <form
               id="form"
               action="#"
               method="POST"
               enctype="multipart/form-data"
             >
-              <section>
+              <div>
                 <ul class="form__buttons">
                   <li><a href="" class="form__buttons-close">Cancel</a></li>
                   <li>
@@ -92,12 +94,15 @@
                       spellcheck="true"
                     ></textarea>
                   </li>
+
                   <!-- upload image -->
                   <li class="form__upload">
                     <label for="upload">
                       <img
                         src="./assets/icons/image.svg"
                         class="form__upload-label"
+                        alt=""
+                        aria-hidden="true"
                       />
                     </label>
                     <input
@@ -121,17 +126,19 @@
                         <img
                           id="preview-image"
                           class="form__preview-img"
-                          alt=""
+                          alt="preview image"
+                          src=""
                         />
                       </div>
                     </div>
                   </li>
                 </ul>
-              </section>
+              </div>
             </form>
-          </section>
+          </div>
         </div>
       </div>
+
       <div>
         <button class="modal__button">
           <i class="fas fa-plus modal__button-add fa-lg" aria-hidden="true"></i>
@@ -139,6 +146,7 @@
         </button>
       </div>
     </main>
+
     <!-- footer -->
     <footer class="footer">
       <div>
@@ -211,6 +219,7 @@
         </p>
       </div>
     </footer>
+
     <script src="./scripts/utils.js"></script>
     <script src="./scripts/index/indexData.js"></script>
     <script src="./scripts/index/index.js"></script>
