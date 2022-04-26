@@ -3,23 +3,24 @@
 .form {
   &__buttons {
     @include flex(row, center, space-between);
+    @include font-family-text;
     margin: 0;
     padding: 1.5rem;
-    font-family: "Helvetica Neue", sans-serif;
-    font-size: 0.9rem;
 
     &-close {
-      cursor: pointer;
       color: $color-text-primary;
+      cursor: pointer;
       &:hover {
         text-decoration: underline;
       }
     }
+
     &-publish {
+      @include font-family-text;
+      color: $color-background-primary;
+      background-color: $color-text-tertiary;
       border-radius: 2rem;
       border: none;
-      background-color: $color-text-tertiary;
-      color: $color-background-primary;
       opacity: 1;
       padding: 0.4rem 1rem;
       cursor: pointer;
@@ -27,33 +28,33 @@
         background-color: darken($color-text-tertiary, 8%);
       }
       &:disabled {
-        cursor: not-allowed;
-        color: rgb(231, 230, 230);
+        color: $color-disabled;
         background-color: $color-text-tertiary;
         border-radius: 2rem;
         border: none;
-        padding: 0.3rem 1rem;
         opacity: 0.5;
+        padding: 0.3rem 1rem;
+        cursor: not-allowed;
       }
     }
   }
 
   &__list {
-    padding: 0 1.5rem;
-    margin: 0;
-    color: $color-text-primary;
     @include flex(column, center, space-between);
+    color: $color-text-primary;
+    margin: 0;
+    padding: 0 1.5rem;
 
     li {
       @include flex(column, flex-start, space-between);
+      @include font-family-text;
       width: 100%;
       padding: 0.5rem 0;
-      font-family: "Helvetica Neue", sans-serif;
     }
   }
 
   &__label {
-    font-family: "Helvetica Neue", sans-serif;
+    @include font-family-title;
     padding: 0.5rem 0;
   }
 
@@ -63,16 +64,15 @@
 
   &__title,
   &__description {
-    color: $color-text-primary;
+    @include font-family-text;
     width: 100%;
     padding: 0.5rem;
-    font-family: "Helvetica Neue", sans-serif;
-    border: 0.0625rem solid #ced4da;
-    border-radius: 0.3125rem;
     resize: vertical;
+    border: 0.0625rem solid $color-disabled;
+    border-radius: 0.3125rem;
+
     &::placeholder {
-      font-family: "Helvetica Neue", sans-serif;
-      color: $color-text-secondary;
+      @include font-family-text;
     }
     &:focus {
       outline: 0.0313rem solid $color-text-secondary;
@@ -83,38 +83,40 @@
     padding: 2rem 0;
   }
   &__preview {
-    border-radius: 0.5rem;
+    @include flex(row, center, center);
     width: 100%;
     min-height: 20vh;
     max-height: 20vh;
-    border: none;
     margin: 0.5rem 0;
+    border: none;
+    border-radius: 0.5rem;
 
-    @include flex(row, center, center);
     &-img {
-      border-radius: 0.5rem;
+      width: 100%;
       max-height: 20vh;
       object-fit: cover;
-      width: 100%;
       object-position: center;
-      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-      background-color: rgb(231, 230, 230);
+      border-radius: 0.5rem;
+      box-shadow: $color-box-shadow;
     }
   }
 }
 
 input[type="file"]::file-selector-button {
-  cursor: pointer;
-  border-radius: 2rem;
+  @include font-family-text;
+  color: $color-background-primary;
+  background-color: $color-confirm-primary;
   padding: 0.4rem 1rem;
   margin: 0.5rem 0.5rem 0.5rem 0;
+  border-radius: 2rem;
   border: none;
-  background-color: #6387ef;
-  font-family: "Helvetica Neue", sans-serif;
-  color: $color-background-primary;
   opacity: 1;
-  padding: 0.4rem 1rem;
+  cursor: pointer;
   &:hover {
-    background-color: darken(#6387ef, 8%);
+    background-color: darken($color-confirm-primary, 8%);
   }
+}
+
+input[type="file" i] {
+  @include font-family-text;
 }
