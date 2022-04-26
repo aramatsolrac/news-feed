@@ -3,7 +3,7 @@
 .footer {
   @include flex(column, center, center);
   width: 100%;
-  padding: 0 1.5rem 5rem 1.5rem;
+  padding: 0 1.5rem 4rem 1.5rem;
   &__social {
     @include flex(row, center, space-evenly);
     padding: 0;
