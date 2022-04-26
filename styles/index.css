@@ -105,7 +105,7 @@ select {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 0 1.5rem 5rem 1.5rem;
+  padding: 0 1.5rem 4rem 1.5rem;
 }
 .footer__social {
   display: flex;
@@ -225,6 +225,11 @@ select {
   width: 100%;
   border-bottom: 0.0313rem solid #ced4da;
 }
+@media screen and (min-width: 1280px) {
+  .news__item {
+    width: 60%;
+  }
+}
 .news__thumbnail {
   display: flex;
   flex-direction: column;
@@ -241,7 +246,7 @@ select {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .news__content {
-  margin: 2rem 0;
+  margin: 2rem 0.1rem;
 }
 .news__description {
   font-family: "Helvetica Neue", sans-serif;
@@ -274,14 +279,14 @@ select {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 1rem 0.3rem 0 0;
+  margin: 1rem 0 0 0;
 }
 .news__like {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  padding: 0.8rem 0.4rem;
+  padding: 0.5rem 0;
 }
 .news__like-btn {
   padding: 0.3rem;
@@ -575,7 +580,7 @@ select {
   cursor: pointer;
 }
 .form__preview-close:hover {
-  filter: brightness(0) invert(0);
+  filter: brightness(0) invert(0.3);
 }
 
 input[type=file]::-webkit-file-upload-button {
