@@ -9,11 +9,15 @@
   width: 100%;
   height: 100%;
   overflow: auto;
+  background-color: $color-background-primary;
   &__content {
     background-color: $color-background-primary;
     margin: auto;
     width: 100%;
     height: 100%;
+    @include desktop {
+      @include wrap($max-width, $margin-center);
+    }
   }
   &__open {
     transition: all 0.3s ease-in;
@@ -25,18 +29,23 @@
   }
   &__button {
     position: fixed;
-    bottom: 22px;
-    right: 22px;
-    border-radius: 50%;
-    border: none;
+    bottom: 1.375rem;
+    right: 1.375rem;
     width: 3rem;
     height: 3rem;
+    border-radius: 50%;
+    border: none;
+
     @include flex(row, center, center);
     color: $color-background-primary;
     background-color: $color-text-tertiary;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: $color-box-shadow;
     transition: background-color 0.5s;
     cursor: pointer;
+    @include desktop {
+      bottom: 1.375rem;
+      right: 1.375rem;
+    }
     &:hover {
       background-color: darken($color-text-tertiary, 8%);
     }
