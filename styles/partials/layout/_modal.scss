@@ -31,30 +31,27 @@
     position: fixed;
     bottom: 1.375rem;
     right: 1.375rem;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
     border: none;
-
-    @include flex(row, center, center);
-    color: $color-background-primary;
-    background-color: $color-text-tertiary;
-    box-shadow: $color-box-shadow;
+    background-color: transparent;
     transition: background-color 0.5s;
-    cursor: pointer;
     @include desktop {
       bottom: 1.375rem;
       right: 1.375rem;
     }
-    &:hover {
-      background-color: darken($color-text-tertiary, 8%);
-    }
-    // TODO add hover when the icon is "edit"
     &-add {
       display: flex;
+      @include circle-button($color-text-tertiary);
+      &:hover {
+        background-color: darken($color-text-tertiary, 8%);
+      }
     }
     &-edit {
       display: none;
+
+      @include circle-button($color-edit);
+      &:hover {
+        background-color: darken($color-edit, 8%);
+      }
     }
   }
 }
