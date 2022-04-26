@@ -222,23 +222,14 @@ select {
 }
 .news__item {
   margin: 2rem 0;
+  width: 100%;
   border-bottom: 0.0313rem solid #ced4da;
-}
-@media screen and (min-width: 768px) {
-  .news__item {
-    margin: 4rem 0;
-  }
 }
 .news__thumbnail {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-@media screen and (min-width: 768px) {
-  .news__thumbnail {
-    margin: 2rem 1.5rem;
-  }
 }
 .news__img {
   -o-object-fit: cover;
@@ -251,11 +242,6 @@ select {
 }
 .news__content {
   margin: 2rem 0;
-}
-@media screen and (min-width: 768px) {
-  .news__content {
-    margin: 2rem;
-  }
 }
 .news__description {
   font-family: "Helvetica Neue", sans-serif;
@@ -360,19 +346,9 @@ select {
   position: fixed;
   bottom: 1.375rem;
   right: 1.375rem;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
   border: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  background-color: #815af0;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: transparent;
   transition: background-color 0.5s;
-  cursor: pointer;
 }
 @media screen and (min-width: 1280px) {
   .modal__button {
@@ -380,14 +356,35 @@ select {
     right: 1.375rem;
   }
 }
-.modal__button:hover {
-  background-color: #6435ed;
-}
 .modal__button-add {
   display: flex;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #815af0;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.modal__button-add:hover {
+  background-color: #6435ed;
 }
 .modal__button-edit {
   display: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #ffd494;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.modal__button-edit:hover {
+  background-color: #ffc46b;
 }
 
 @-webkit-keyframes fadeIn {
@@ -542,21 +539,27 @@ select {
 .form__upload {
   padding: 2rem 0;
 }
+.form__upload-label {
+  cursor: pointer;
+  border-radius: 0.4rem;
+  padding: 0.2rem;
+}
+.form__upload-label:hover {
+  background-color: #ece6fd;
+}
 .form__preview {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   width: 100%;
-  min-height: 20vh;
-  max-height: 20vh;
   margin: 0.5rem 0;
   border: none;
   border-radius: 0.5rem;
 }
 .form__preview-img {
   width: 100%;
-  max-height: 20vh;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
@@ -564,51 +567,27 @@ select {
   border-radius: 0.5rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+.form__preview-close {
+  visibility: hidden;
+  position: relative;
+  top: 2.1rem;
+  left: 0.5rem;
+  cursor: pointer;
+}
+.form__preview-close:hover {
+  filter: brightness(0) invert(0);
+}
 
 input[type=file]::-webkit-file-upload-button {
-  font-family: "Helvetica Neue", sans-serif;
-  color: #292043;
-  font-weight: normal;
-  line-height: 175%;
-  letter-spacing: 0.0625rem;
-  color: #fff;
-  background-color: #6387ef;
-  padding: 0.4rem 1rem;
-  margin: 0.5rem 0.5rem 0.5rem 0;
-  border-radius: 2rem;
-  border: none;
-  opacity: 1;
-  cursor: pointer;
+  display: none;
 }
 
 input[type=file]::file-selector-button {
-  font-family: "Helvetica Neue", sans-serif;
-  color: #292043;
-  font-weight: normal;
-  line-height: 175%;
-  letter-spacing: 0.0625rem;
-  color: #fff;
-  background-color: #6387ef;
-  padding: 0.4rem 1rem;
-  margin: 0.5rem 0.5rem 0.5rem 0;
-  border-radius: 2rem;
-  border: none;
-  opacity: 1;
-  cursor: pointer;
-}
-input[type=file]::-webkit-file-upload-button:hover {
-  background-color: #3e6beb;
-}
-input[type=file]::file-selector-button:hover {
-  background-color: #3e6beb;
+  display: none;
 }
 
 input[type=file i] {
-  font-family: "Helvetica Neue", sans-serif;
-  color: #292043;
-  font-weight: normal;
-  line-height: 175%;
-  letter-spacing: 0.0625rem;
+  display: none;
 }
 
 .swal-title {
@@ -642,7 +621,7 @@ input[type=file i] {
 }
 @media screen and (min-width: 1280px) {
   .swal-button {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }
 
