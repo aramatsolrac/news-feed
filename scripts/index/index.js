@@ -13,22 +13,33 @@ const addNewBtn = document.querySelector(".modal__button");
 const editIconBtn = document.querySelector(".modal__button-edit");
 const addIconBtn = document.querySelector(".modal__button-add");
 
+newsArray.sort((a, b) => {
+  return b.timestamp - a.timestamp;
+});
+
 // display news
 const displayNews = () => {
   newsArray.forEach((newsItem) => {
     const newsItemContent = createElement("div", "news__item");
     newsItemContent.innerHTML = `
     <div class="news__thumbnail">
-        <img class="news__img" src="${newsItem.thumbnail}" alt="${
-      newsItem.title
-    }">
+    ${
+      newsItem.thumbnail
+        ? `<img class="news__img" src="${newsItem.thumbnail}" alt="${newsItem.title}">`
+        : ""
+    }
     </div>
     <div class="news__content">
-      <h2 class="news__title">${newsItem.title}</h2>
-      <p class="news__description">${newsItem.description}</p>
       <div class="news__footer">
         <p class="news__author">${newsItem.author}</p>
         <p class="news__date">${formatDate(newsItem.timestamp)}</p>
+      </div>
+      <p class="news__description">${newsItem.description}</p>
+      <div class="news__like">
+      <button class="news__like-btn" type="button"> 
+        <i class="fas fa-heart news__like-icon" aria-hidden="true"></i>
+      </button>
+      <p class="news__like-number">${newsItem.likes}</p>
       </div>
     </div>
 `;
@@ -69,18 +80,25 @@ const cleanForm = () => {
 // enable publish button only when all fields are filled
 publishBtn.disabled = true;
 
+form.addEventListener("keyup", (event) => {
+  const form =
+    event.target.parentElement.parentElement.parentElement.parentElement;
+
+  if (form.description.value !== "") {
+    publishBtn.disabled = false;
+  } else {
+    publishBtn.disabled = true;
+  }
+});
+
 form.addEventListener("change", (event) => {
   const form =
     event.target.parentElement.parentElement.parentElement.parentElement;
 
-  if (
-    form.title.value === "" ||
-    form.description.value === "" ||
-    form.upload.value === ""
-  ) {
-    publishBtn.disabled = true;
-  } else {
+  if (form.description.value !== "" || form.upload.value !== "") {
     publishBtn.disabled = false;
+  } else {
+    publishBtn.disabled = true;
   }
 });
 
@@ -92,7 +110,6 @@ form.addEventListener("submit", (event) => {
   const description = event.target.description.value;
 
   newsArray.unshift({
-    title: title,
     author: "Helcim Team",
     timestamp: today,
     thumbnail: previewImage.src,
@@ -123,11 +140,7 @@ addNewBtn.onclick = () => {
 closeBtn.onclick = (event) => {
   event.preventDefault();
 
-  if (
-    form.title.value === "" &&
-    form.description.value === "" &&
-    form.upload.value === ""
-  ) {
+  if (form.description.value === "" && form.upload.value === "") {
     modal.classList.remove("modal__add");
     modal.classList.add("modal__open");
     modal.style.display = "none";
@@ -143,7 +156,7 @@ closeBtn.onclick = (event) => {
           text: "Delete",
           value: "deny",
         },
-        confirm: "Save draft",
+        confirm: "Save Draft",
       },
     }).then((result) => {
       console.log(result);
@@ -173,7 +186,28 @@ closeBtn.onclick = (event) => {
         addIconBtn.style.display = "flex";
         addNewBtn.style.backgroundColor = "#815af0";
         cleanForm();
+        publishBtn.disabled = true;
       }
     });
   }
 };
+
+// like counter
+const likeBtn = document.querySelectorAll(".news__like-btn");
+const likeNumber = document.querySelectorAll(".news__like-number");
+
+likeBtn.forEach((icon) => {
+  icon.addEventListener("click", (event) => {
+    event.target.classList.toggle("liked");
+    let isLiked = event.target.classList.contains("liked");
+    if (isLiked) {
+      likeNumber.forEach((number) => {
+        number.textContent = parseInt(number.textContent) + 1;
+      });
+    } else {
+      likeNumber.forEach((number) => {
+        number.textContent = parseInt(number.textContent) - 1;
+      });
+    }
+  });
+});
