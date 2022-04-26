@@ -9,10 +9,8 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-
-  // background-color: rgba(0, 0, 0, 0.4);
   &__content {
-    background-color: white;
+    background-color: $color-background-primary;
     margin: auto;
     width: 100%;
     height: 100%;
