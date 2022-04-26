@@ -6,7 +6,7 @@ let newsArray = [
     author: "Helcim Team",
     thumbnail: "",
     description:
-      "Did you know we recently won Canada's Most Admired Company Culture award with @waterstonehc?  But what makes for an amazing #companyculture? Check out our video below and find out! http://ow.ly/fo4r50IKg3u",
+      "Did you hear the news? Helcim Bank Payments is live! Your customers can now pay you directly from their #bankaccount on our platform! Want to find out how this #feature can benefit you and your #business? Check out our #blogpost.",
     likes: 104,
   },
 
@@ -32,6 +32,6 @@ let newsArray = [
     thumbnail: "./../../assets/images/news/20220407-post.jpeg",
     description:
       "High risk merchant? Here is how to find the right processor. Plus, tips to get approved for a merchant account sooner.",
-    likes: 601,
+    likes: 1601,
   },
 ];
