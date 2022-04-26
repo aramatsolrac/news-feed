@@ -13,9 +13,8 @@
     }
   }
   &__copyright {
-    font-family: "Helvetica Neue", sans-serif;
-    color: $color-text-secondary;
-    font-size: 0.9rem;
+    @include font-family-text;
+    font-size: 0.8rem;
     margin: 0.5rem 0;
     line-height: 1rem;
     text-align: center;
