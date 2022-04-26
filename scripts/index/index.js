@@ -76,51 +76,55 @@ uploadImage.addEventListener("change", (event) => {
   closeImageIcon.style.visibility = "visible";
 });
 
+// enable publish button only when some data is entered
+form.addEventListener("keyup", () => {
+  updateButtonDisabledState();
+});
+
+form.addEventListener("change", () => {
+  updateButtonDisabledState();
+});
+
+function updateButtonDisabledState() {
+  publishBtn.disabled = form.description.value == "" && form.upload.value == "";
+}
+
 // close image
 const closeImage = () => {
+  const descriptionEmpty = form.description.value == "";
+  if (descriptionEmpty) {
+    form.upload.value = "";
+    updateButtonDisabledState();
+  }
   previewImage.style.visibility = "hidden";
   closeImageIcon.style.visibility = "hidden";
-  publishBtn.disabled = true;
-  form.upload.value = "";
 };
 
 closeImageIcon.addEventListener("click", closeImage);
 
 // clean form after submit
 const cleanForm = () => {
-  form.reset();
   cleanAndAddNews();
   closeImage();
-  form.upload.value = "";
+  form.reset();
+  // form.upload.value = "";
   window.scrollTo(0, 0);
   modal.style.display = "none";
+  modal.classList.remove("modal__add");
+  modal.classList.add("modal__close");
   header.style.display = "block";
+  editIconBtn.style.display = "none";
+  addIconBtn.style.display = "flex";
+  updateButtonDisabledState();
 };
 
-// enable publish button only when some data is entered
-publishBtn.disabled = true;
-
-form.addEventListener("keyup", (event) => {
-  const form =
-    event.target.parentElement.parentElement.parentElement.parentElement;
-
-  if (form.description.value !== "") {
-    publishBtn.disabled = false;
-  } else {
-    publishBtn.disabled = true;
-  }
-});
-
-form.addEventListener("change", (event) => {
-  const form =
-    event.target.parentElement.parentElement.parentElement.parentElement;
-
-  if (form.description.value !== "" || form.upload.value !== "") {
-    publishBtn.disabled = false;
-  } else {
-    publishBtn.disabled = true;
-  }
-});
+//
+const keepFormData = () => {
+  modal.style.display = "none";
+  header.style.display = "block";
+  editIconBtn.style.display = "flex";
+  addIconBtn.style.display = "none";
+};
 
 // add and remove like
 const likeCounter = () => {
@@ -176,10 +180,15 @@ form.addEventListener("submit", (event) => {
 
 // open modal
 addNewBtn.onclick = () => {
+  const draft = editIconBtn.style.display === "flex";
+  if (!draft) {
+    closeImage();
+  }
   modal.style.display = "block";
   header.style.display = "none";
+  modal.classList.remove("modal__close");
   modal.classList.add("modal__open");
-  closeImage();
+  updateButtonDisabledState();
 };
 
 // close modal
@@ -187,10 +196,8 @@ closeBtn.onclick = (event) => {
   event.preventDefault();
 
   if (form.description.value === "" && form.upload.value === "") {
-    modal.classList.remove("modal__add");
-    modal.classList.add("modal__open");
-    modal.style.display = "none";
-    header.style.display = "block";
+    cleanForm();
+    likeCounter();
   } else {
     swal({
       title: "Save draft for later?",
@@ -214,10 +221,7 @@ closeBtn.onclick = (event) => {
           timer: 2300,
           button: false,
         });
-        modal.style.display = "none";
-        header.style.display = "block";
-        editIconBtn.style.display = "flex";
-        addIconBtn.style.display = "none";
+        keepFormData();
       } else if (result === "deny") {
         swal({
           title: "Not saved!",
@@ -226,11 +230,8 @@ closeBtn.onclick = (event) => {
           button: false,
           timer: 2300,
         });
-
-        editIconBtn.style.display = "none";
-        addIconBtn.style.display = "flex";
         cleanForm();
-        publishBtn.disabled = true;
+        likeCounter();
       }
     });
   }
