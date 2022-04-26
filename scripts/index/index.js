@@ -26,24 +26,27 @@ const displayNews = () => {
     const newsItemContent = createElement("div", "news__item");
     newsItemContent.innerHTML = `
     <div class="news__thumbnail">
-    ${
-      newsItem.thumbnail
-        ? `<img class="news__img" src="${newsItem.thumbnail}" alt="">`
-        : ""
-    }
+      ${
+        newsItem.thumbnail
+          ? `<img
+        class="news__img"
+        src="${newsItem.thumbnail}"
+        alt=""
+      />`
+          : ""
+      }
     </div>
-      <div class="news__content">
-        <div class="news__footer">
-          <p class="news__author">${newsItem.author}</p>
-          <p class="news__date">${formatDate(newsItem.timestamp)}</p>
-        </div>
-        <p class="news__description">${newsItem.description}</p>
-        <div class="news__like">
-          <button class="news__like-btn" type="button">
-            <i class="fas fa-heart news__like-icon" aria-hidden="true"></i>
-          </button>
-          <p class="news__like-number">${newsItem.likes}</p>
-        </div>
+    <div class="news__content">
+      <div class="news__footer">
+        <p class="news__author">${newsItem.author}</p>
+        <p class="news__date">${formatDate(newsItem.timestamp)}</p>
+      </div>
+      <p class="news__description">${newsItem.description}</p>
+      <div class="news__like">
+        <button class="news__like-btn" type="button">
+          <i class="fas fa-heart news__like-icon" aria-hidden="true"></i>
+        </button>
+        <p class="news__like-number">${newsItem.likes}</p>
       </div>
     </div>
 `;
@@ -176,6 +179,7 @@ addNewBtn.onclick = () => {
   modal.style.display = "block";
   header.style.display = "none";
   modal.classList.add("modal__open");
+  closeImage();
 };
 
 // close modal
