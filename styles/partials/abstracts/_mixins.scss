@@ -15,6 +15,25 @@
   border: $width $style $color;
 }
 
+// font-family
+@mixin font-family-title {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1.125rem;
+  color: $color-text-primary;
+  font-weight: normal;
+  line-height: 160%;
+  letter-spacing: normal;
+}
+
+@mixin font-family-text {
+  font-family: "Helvetica Neue", sans-serif;
+  // font-size: 1rem;
+  color: $color-text-primary;
+  font-weight: normal;
+  line-height: 175%;
+  letter-spacing: 0.0625rem;
+}
+
 // flexbox
 @mixin flex($flex-direction, $align-items, $justify-content) {
   display: flex;
@@ -27,11 +46,6 @@
   display: flex;
   align-items: $align-items;
   justify-content: $justify-content;
-}
-
-@mixin flex-direction($flex-direction) {
-  display: flex;
-  flex-direction: $flex-direction;
 }
 
 // larger displays
