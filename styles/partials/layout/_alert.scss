@@ -1,38 +1,51 @@
 @use "./../global" as *;
 
 .swal-title {
-  font-family: "Helvetica Neue", sans-serif;
-  color: $color-text-primary;
+  @include font-family-title;
 }
 
 .swal-text {
-  font-family: "Helvetica Neue", sans-serif;
-  color: $color-text-secondary;
+  @include font-family-text;
+  font-size: 0.9rem;
 }
 .swal-button {
-  padding: 0.4375rem 1.1875rem;
-  font-size: 0.6875rem;
-  font-family: "Helvetica Neue", sans-serif;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  @include font-family-title;
+  font-size: 0.6rem;
+  @include desktop {
+    font-size: 1.5rem;
+  }
 }
 
 .swal-button--confirm {
-  color: #6387ef;
-  background-color: #ebf0ff;
+  background-color: $color-confirm-secondary;
+  color: $color-confirm-primary;
   border-radius: 0.3125rem;
+  &:not([disabled]):hover {
+    background-color: $color-confirm-primary;
+    color: $color-confirm-secondary;
+  }
 }
 
 .swal-button--cancel {
-  background-color: rgb(231, 230, 230);
-  color: rgb(143, 140, 140);
+  background-color: $color-cancel-secondary;
+  color: $color-cancel-primary;
+  &:not([disabled]):hover {
+    background-color: $color-cancel-primary;
+    color: $color-cancel-secondary;
+  }
 }
 
 .swal-button--deny {
-  background-color: #f4dbdf;
-  color: #f27389;
+  background-color: $color-deny-secondary;
+  color: $color-deny-primary;
+  &:not([disabled]):hover {
+    background-color: $color-deny-primary;
+    color: $color-deny-secondary;
+  }
 }
 
 .swal-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex(row, center, center);
 }
