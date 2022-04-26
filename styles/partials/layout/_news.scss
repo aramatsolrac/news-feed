@@ -10,50 +10,21 @@
   }
   &__item {
     margin: 2rem 0;
+    width: 100%;
     @include border-position(bottom, 0.0313rem, solid, $color-disabled);
-    // &:first-child {
-    //   @include border-position(top, 0.0625rem, solid, $color-disabled);
-    // }
-
-    // simple tablet/desktop design
-    @include tablet {
-      margin: 4rem 0;
-    }
   }
   &__thumbnail {
     @include flex(column, center, center);
-    // simple tablet/desktop design
-    @include tablet {
-      margin: 2rem 1.5rem;
-    }
   }
   &__img {
     object-fit: cover;
     object-position: center;
     width: 100%;
-    // min-width: 17rem;
-    // max-width: 17rem;
-    // min-height: 19vh;
-    // max-height: 28vh;
     border-radius: 0.5rem;
     box-shadow: $color-box-shadow;
-    // simple tablet/desktop design
-    @include tablet {
-      // min-height: 40vh;
-      // min-width: 45rem;
-      // max-width: 45rem;
-    }
   }
   &__content {
     margin: 2rem 0;
-    // width: 100%;
-    // width: 18rem;
-    // simple tablet/desktop design
-    @include tablet {
-      // width: 72vh;
-      // margin: 0 6rem;
-      margin: 2rem;
-    }
   }
 
   &__description {
