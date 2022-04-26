@@ -1,10 +1,4 @@
 @use "./variables" as *;
-// image cover
-@mixin cover-background {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
 
 // borders
 @mixin border-position($direction, $width, $style, $color) {
@@ -34,16 +28,23 @@
   letter-spacing: 0.0625rem;
 }
 
+// button
+@mixin circle-button($background) {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  color: $color-background-primary;
+  background-color: $background;
+  box-shadow: $color-box-shadow;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 // flexbox
 @mixin flex($flex-direction, $align-items, $justify-content) {
   display: flex;
   flex-direction: $flex-direction;
-  align-items: $align-items;
-  justify-content: $justify-content;
-}
-
-@mixin flex-default($align-items, $justify-content) {
-  display: flex;
   align-items: $align-items;
   justify-content: $justify-content;
 }
