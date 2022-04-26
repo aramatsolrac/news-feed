@@ -94,6 +94,12 @@
                   </li>
                   <!-- upload image -->
                   <li class="form__upload">
+                    <label for="upload">
+                      <img
+                        src="./assets/icons/image.svg"
+                        class="form__upload-label"
+                      />
+                    </label>
                     <input
                       id="upload"
                       type="file"
@@ -101,12 +107,23 @@
                       accept="image/*"
                       class="form__preview-input"
                     />
+
                     <div class="form__preview">
-                      <img
-                        id="preview-image"
-                        class="form__preview-img"
-                        alt=""
-                      />
+                      <div>
+                        <img
+                          class="form__preview-close"
+                          src="./assets/icons/x-mark.svg"
+                          alt=""
+                          aria-hidden="true"
+                        />
+                      </div>
+                      <div>
+                        <img
+                          id="preview-image"
+                          class="form__preview-img"
+                          alt=""
+                        />
+                      </div>
                     </div>
                   </li>
                 </ul>
