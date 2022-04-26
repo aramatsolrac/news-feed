@@ -1,17 +1,20 @@
 "use strict";
-const header = document.querySelector(".header");
-const modal = document.querySelector(".modal");
 const newsContainer = document.querySelector(".news__container");
-const form = document.getElementById("form");
-const title = document.querySelector(".form__title");
-const description = document.querySelector(".form__description");
-const uploadImage = document.getElementById("upload");
-const previewImage = document.getElementById("preview-image");
-const closeBtn = document.querySelector(".form__buttons-close");
-const publishBtn = document.querySelector(".form__buttons-publish");
+const header = document.querySelector(".header");
+
+const modal = document.querySelector(".modal");
 const addNewBtn = document.querySelector(".modal__button");
 const editIconBtn = document.querySelector(".modal__button-edit");
 const addIconBtn = document.querySelector(".modal__button-add");
+
+const form = document.getElementById("form");
+const description = document.querySelector(".form__description");
+const closeBtn = document.querySelector(".form__buttons-close");
+const publishBtn = document.querySelector(".form__buttons-publish");
+
+const uploadImage = document.getElementById("upload");
+const previewImage = document.getElementById("preview-image");
+const closeImageIcon = document.querySelector(".form__preview-close");
 
 newsArray.sort((a, b) => {
   return b.timestamp - a.timestamp;
@@ -25,21 +28,22 @@ const displayNews = () => {
     <div class="news__thumbnail">
     ${
       newsItem.thumbnail
-        ? `<img class="news__img" src="${newsItem.thumbnail}" alt="${newsItem.title}">`
+        ? `<img class="news__img" src="${newsItem.thumbnail}" alt="">`
         : ""
     }
     </div>
-    <div class="news__content">
-      <div class="news__footer">
-        <p class="news__author">${newsItem.author}</p>
-        <p class="news__date">${formatDate(newsItem.timestamp)}</p>
-      </div>
-      <p class="news__description">${newsItem.description}</p>
-      <div class="news__like">
-      <button class="news__like-btn" type="button"> 
-        <i class="fas fa-heart news__like-icon" aria-hidden="true"></i>
-      </button>
-      <p class="news__like-number">${newsItem.likes}</p>
+      <div class="news__content">
+        <div class="news__footer">
+          <p class="news__author">${newsItem.author}</p>
+          <p class="news__date">${formatDate(newsItem.timestamp)}</p>
+        </div>
+        <p class="news__description">${newsItem.description}</p>
+        <div class="news__like">
+          <button class="news__like-btn" type="button">
+            <i class="fas fa-heart news__like-icon" aria-hidden="true"></i>
+          </button>
+          <p class="news__like-number">${newsItem.likes}</p>
+        </div>
       </div>
     </div>
 `;
@@ -65,19 +69,32 @@ uploadImage.addEventListener("change", (event) => {
   });
 
   reader.readAsDataURL(event.target.files[0]);
+  previewImage.style.visibility = "visible";
+  closeImageIcon.style.visibility = "visible";
 });
+
+// close image
+const closeImage = () => {
+  previewImage.style.visibility = "hidden";
+  closeImageIcon.style.visibility = "hidden";
+  publishBtn.disabled = true;
+  form.upload.value = "";
+};
+
+closeImageIcon.addEventListener("click", closeImage);
 
 // clean form after submit
 const cleanForm = () => {
   form.reset();
   cleanAndAddNews();
-  previewImage.src = "";
+  closeImage();
+  form.upload.value = "";
   window.scrollTo(0, 0);
   modal.style.display = "none";
   header.style.display = "block";
 };
 
-// enable publish button only when all fields are filled
+// enable publish button only when some data is entered
 publishBtn.disabled = true;
 
 form.addEventListener("keyup", (event) => {
@@ -102,11 +119,34 @@ form.addEventListener("change", (event) => {
   }
 });
 
+// add and remove like
+const likeCounter = () => {
+  const likeIcon = document.querySelectorAll(".news__like-icon");
+  const likeNumber = document.querySelectorAll(".news__like-number");
+  likeIcon.forEach((icon) => {
+    icon.addEventListener("click", (event) => {
+      console.log("clicked");
+      event.target.classList.toggle("liked");
+      let isLiked = event.target.classList.contains("liked");
+      if (!isLiked) {
+        likeNumber.forEach((number) => {
+          number.textContent = parseInt(number.textContent) - 1;
+        });
+      } else {
+        likeNumber.forEach((number) => {
+          number.textContent = parseInt(number.textContent) + 1;
+        });
+      }
+    });
+  });
+};
+
+likeCounter();
+
 // add news
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   let today = new Date();
-  const title = event.target.title.value;
   const description = event.target.description.value;
 
   newsArray.unshift({
@@ -114,6 +154,7 @@ form.addEventListener("submit", (event) => {
     timestamp: today,
     thumbnail: previewImage.src,
     description: description,
+    likes: 0,
   });
 
   swal({
@@ -125,6 +166,7 @@ form.addEventListener("submit", (event) => {
   });
 
   cleanForm();
+  likeCounter();
 });
 
 // *MODAl*
@@ -172,7 +214,6 @@ closeBtn.onclick = (event) => {
         header.style.display = "block";
         editIconBtn.style.display = "flex";
         addIconBtn.style.display = "none";
-        addNewBtn.style.backgroundColor = "#ffd494";
       } else if (result === "deny") {
         swal({
           title: "Not saved!",
@@ -184,30 +225,9 @@ closeBtn.onclick = (event) => {
 
         editIconBtn.style.display = "none";
         addIconBtn.style.display = "flex";
-        addNewBtn.style.backgroundColor = "#815af0";
         cleanForm();
         publishBtn.disabled = true;
       }
     });
   }
 };
-
-// like counter
-const likeBtn = document.querySelectorAll(".news__like-btn");
-const likeNumber = document.querySelectorAll(".news__like-number");
-
-likeBtn.forEach((icon) => {
-  icon.addEventListener("click", (event) => {
-    event.target.classList.toggle("liked");
-    let isLiked = event.target.classList.contains("liked");
-    if (isLiked) {
-      likeNumber.forEach((number) => {
-        number.textContent = parseInt(number.textContent) + 1;
-      });
-    } else {
-      likeNumber.forEach((number) => {
-        number.textContent = parseInt(number.textContent) - 1;
-      });
-    }
-  });
-});
