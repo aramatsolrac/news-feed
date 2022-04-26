@@ -1,23 +1,29 @@
 @use "./../global" as *;
 
 .hero {
-  height: 40vh;
   @include flex(row, center, center);
-  background: linear-gradient(122.42deg, #faefff 21.38%, #efefff 69.42%);
-
+  height: 50vh;
+  background: $color-background-secondary;
+  // simple tablet/desktop layout
+  @include tablet {
+    height: 70vh;
+  }
   &__content {
     margin-top: 3.7rem;
   }
   &__title {
     @include flex(row, center, center);
-    font-family: "Red Hat Display", sans-serif;
+    @include font-family-title;
     font-size: 2rem;
-    color: $color-text-primary;
+    // simple tablet/desktop design
+    @include tablet {
+      font-size: 3rem;
+    }
     &-accent {
-      margin-left: 0.4rem;
+      color: $color-text-tertiary;
       font-style: italic;
       font-weight: bold;
-      color: $color-text-tertiary;
+      margin-left: 0.4rem;
     }
   }
 }
