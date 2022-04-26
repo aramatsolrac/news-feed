@@ -1,0 +1,23 @@
+@use "./../global" as *;
+
+.hero {
+  height: 40vh;
+  @include flex(row, center, center);
+  background: linear-gradient(122.42deg, #faefff 21.38%, #efefff 69.42%);
+
+  &__content {
+    margin-top: 3.7rem;
+  }
+  &__title {
+    @include flex(row, center, center);
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 32px;
+    color: $color-text-primary;
+    &-accent {
+      margin-left: 0.4rem;
+      font-style: italic;
+      font-weight: bold;
+      color: $color-text-tertiary;
+    }
+  }
+}
