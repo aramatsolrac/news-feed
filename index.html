@@ -57,9 +57,9 @@
         <!-- populate news section via JS -->
       </section>
       <!-- add news modal -->
-      <div class="add-news__modal">
-        <div class="add-news__modal-content">
-          <section class="add-news__form">
+      <div class="modal">
+        <div class="modal__content">
+          <section class="form">
             <form
               id="form"
               action="#"
@@ -67,12 +67,12 @@
               enctype="multipart/form-data"
             >
               <section>
-                <ul class="add-news__buttons">
-                  <li><a href="" class="add-news__buttons-close">Cancel</a></li>
+                <ul class="form__buttons">
+                  <li><a href="" class="form__buttons-close">Cancel</a></li>
                   <li>
                     <button
                       id="publish"
-                      class="add-news__buttons-publish"
+                      class="form__buttons-publish"
                       type="submit"
                     >
                       Publish
@@ -80,11 +80,11 @@
                   </li>
                 </ul>
 
-                <ul class="add-news__list">
+                <ul class="form__list">
                   <li>
-                    <label class="add-news__label" for="title">Title</label>
+                    <label class="form__label" for="title">Title</label>
                     <textarea
-                      class="add-news__title"
+                      class="form__title"
                       type="text"
                       id="title"
                       name="title"
@@ -93,11 +93,11 @@
                     ></textarea>
                   </li>
                   <li>
-                    <label class="add-news__label" for="description"
+                    <label class="form__label" for="description"
                       >Description</label
                     >
                     <textarea
-                      class="add-news__description"
+                      class="form__description"
                       id="description"
                       name="description"
                       rows="4"
@@ -107,24 +107,25 @@
                     ></textarea>
                   </li>
                   <!-- upload image -->
-                  <li class="add-news__upload">
-                    <label for="upload" class="add-news__label"
+                  <li class="form__upload">
+                    <label for="upload" class="form__label"
                       >Choose an image to upload</label
                     >
-                    <div class="add-news__preview">
-                      <img
-                        id="preview-image"
-                        class="add-news__preview-img"
-                        alt=""
-                      />
-                    </div>
+
                     <input
                       id="upload"
                       type="file"
                       name="upload"
                       accept="image/*"
-                      class="add-news__preview-input"
+                      class="form__preview-input"
                     />
+                    <div class="form__preview">
+                      <img
+                        id="preview-image"
+                        class="form__preview-img"
+                        alt=""
+                      />
+                    </div>
                   </li>
                 </ul>
               </section>
@@ -133,15 +134,9 @@
         </div>
       </div>
       <div>
-        <button class="add-news__button">
-          <i
-            class="fas fa-plus add-news__button-add fa-lg"
-            aria-hidden="true"
-          ></i>
-          <i
-            class="fas fa-pen add-news__button-edit fa-lg"
-            aria-hidden="true"
-          ></i>
+        <button class="modal__button">
+          <i class="fas fa-plus modal__button-add fa-lg" aria-hidden="true"></i>
+          <i class="fas fa-pen modal__button-edit fa-lg" aria-hidden="true"></i>
         </button>
       </div>
     </main>
