@@ -7,13 +7,16 @@
   top: 0;
   right: 0;
   left: 0;
-  background-color: $color-background-primary;
   padding: 1.5rem;
-  background: linear-gradient(122.42deg, #faefff 21.38%, #efefff 69.42%);
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background: $color-background-secondary;
+  box-shadow: $color-box-shadow;
+  @include full-width($color-background-secondary);
 
   &__wrapper {
     @include flex(row, center, space-between);
+    @include desktop {
+      @include wrap($max-width, $margin-center);
+    }
   }
   &__menu {
     @include flex(column, flex-end, flex-end);
