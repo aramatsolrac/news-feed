@@ -32,12 +32,9 @@
     bottom: 1.375rem;
     right: 1.375rem;
     border: none;
+    border-radius: 50%;
     background-color: transparent;
     transition: background-color 0.5s;
-    @include desktop {
-      bottom: 1.375rem;
-      right: 1.375rem;
-    }
     &-add {
       display: flex;
       @include circle-button($color-text-tertiary);

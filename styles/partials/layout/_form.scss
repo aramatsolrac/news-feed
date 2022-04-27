@@ -9,6 +9,7 @@
 
     &-close {
       color: $color-text-primary;
+      padding: 0.5rem;
       cursor: pointer;
       &:hover,
       &:focus,
@@ -78,6 +79,7 @@
     &::placeholder {
       @include font-family-text;
     }
+
     &:focus {
       outline: 0.0313rem solid $color-text-secondary;
     }
@@ -127,10 +129,7 @@
   }
 }
 
-input[type="file"]::file-selector-button {
-  display: none;
-}
-
+input[type="file"]::file-selector-button,
 input[type="file" i] {
   display: none;
 }

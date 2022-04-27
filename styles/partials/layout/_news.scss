@@ -47,20 +47,21 @@
     @include font-family-text;
   }
 
-  &__footer {
+  &__details {
     @include flex(row, center, space-between);
-    margin: 1rem 0 0 0;
+    margin: 1rem 0;
   }
   &__like {
     @include flex(row, center, flex-end);
-    padding: 0.5rem 0;
+    // padding: 0.5rem 0;
+    border-radius: 50%;
     &-btn {
       border: none;
       background-color: transparent;
     }
     &-icon {
       cursor: pointer;
-      padding: 0.3rem 0.3rem 0.3rem 0;
+      padding: 0.3rem;
       border: none;
       color: $color-disabled;
     }

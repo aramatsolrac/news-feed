@@ -277,19 +277,19 @@ select {
   line-height: 175%;
   letter-spacing: 0.0625rem;
 }
-.news__footer {
+.news__details {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 1rem 0 0 0;
+  margin: 1rem 0;
 }
 .news__like {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  padding: 0.5rem 0;
+  border-radius: 50%;
 }
 .news__like-btn {
   border: none;
@@ -297,7 +297,7 @@ select {
 }
 .news__like-icon {
   cursor: pointer;
-  padding: 0.3rem 0.3rem 0.3rem 0;
+  padding: 0.3rem;
   border: none;
   color: #ced4da;
 }
@@ -354,14 +354,9 @@ select {
   bottom: 1.375rem;
   right: 1.375rem;
   border: none;
+  border-radius: 50%;
   background-color: transparent;
   transition: background-color 0.5s;
-}
-@media screen and (min-width: 1280px) {
-  .modal__button {
-    bottom: 1.375rem;
-    right: 1.375rem;
-  }
 }
 .modal__button-add {
   display: flex;
@@ -444,6 +439,7 @@ select {
 }
 .form__buttons-close {
   color: #292043;
+  padding: 0.5rem;
   cursor: pointer;
 }
 .form__buttons-close:hover, .form__buttons-close:focus, .form__buttons-close:active {
@@ -591,10 +587,7 @@ input[type=file]::-webkit-file-upload-button {
   display: none;
 }
 
-input[type=file]::file-selector-button {
-  display: none;
-}
-
+input[type=file]::file-selector-button,
 input[type=file i] {
   display: none;
 }
