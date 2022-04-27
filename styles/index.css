@@ -292,7 +292,6 @@ select {
   padding: 0.5rem 0;
 }
 .news__like-btn {
-  padding: 0.3rem;
   border: none;
   background-color: transparent;
 }
@@ -301,9 +300,6 @@ select {
   padding: 0.3rem 0.3rem 0.3rem 0;
   border: none;
   color: #ced4da;
-}
-.news__like-icon:hover {
-  color: #d22d2d;
 }
 .news__like-number {
   font-family: "Helvetica Neue", sans-serif;
