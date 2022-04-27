@@ -37,7 +37,7 @@ const displayNews = () => {
       }
     </div>
     <div class="news__content">
-      <div class="news__footer">
+      <div class="news__details">
         <p class="news__author">${newsItem.author}</p>
         <p class="news__date">${formatDate(newsItem.timestamp)}</p>
       </div>
@@ -68,12 +68,11 @@ uploadImage.addEventListener("change", (event) => {
 
   reader.addEventListener("load", () => {
     previewImage.src = reader.result;
-    console.log("Image changed");
   });
 
-  reader.readAsDataURL(event.target.files[0]);
   previewImage.style.visibility = "visible";
   closeImageIcon.style.visibility = "visible";
+  reader.readAsDataURL(event.target.files[0]);
 });
 
 // enable publish button only when some data is entered
@@ -119,7 +118,7 @@ const cleanForm = () => {
   updateButtonDisabledState();
 };
 
-//
+// keep form data as a draft
 const keepFormData = () => {
   modal.style.display = "none";
   header.style.display = "block";
@@ -133,7 +132,6 @@ const likeCounter = () => {
   const likeNumber = document.querySelectorAll(".news__like-number");
   likeIcon.forEach((icon) => {
     icon.addEventListener("click", (event) => {
-      console.log("clicked");
       event.target.classList.toggle("liked");
       let isLiked = event.target.classList.contains("liked");
       if (!isLiked) {
@@ -156,21 +154,17 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   let today = new Date();
   const description = event.target.description.value;
-  const safariImagePath = "http://127.0.0.1:5500/index.html";
 
   newsArray.unshift({
     author: "Helcim Team",
     timestamp: today,
-    // thumbnail: `${safariImagePath ? "" : previewImage.src}`,
     thumbnail: previewImage.src,
     description: description,
     likes: 0,
   });
 
-  console.log({ previewImage });
-
   swal({
-    title: "Done!",
+    title: "Published!",
     text: "News has been published.",
     icon: "success",
     timer: 2500,
@@ -217,10 +211,9 @@ closeBtn.onclick = (event) => {
         confirm: "Save Draft",
       },
     }).then((result) => {
-      console.log(result);
       if (result === true) {
         swal({
-          title: "Done!",
+          title: "Saved!",
           text: "Changes has been saved.",
           icon: "success",
           timer: 2300,
