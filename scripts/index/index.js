@@ -27,13 +27,13 @@ const displayNews = () => {
     newsItemContent.innerHTML = `
     <div class="news__thumbnail">
       ${
-        newsItem.thumbnail
+        newsItem.thumbnail != "data:"
           ? `<img
         class="news__img"
         src="${newsItem.thumbnail}"
         alt=""
       />`
-          : `<p></p>`
+          : ""
       }
     </div>
     <div class="news__content">
@@ -98,7 +98,7 @@ const closeImage = () => {
   }
   previewImage.style.visibility = "hidden";
   closeImageIcon.style.visibility = "hidden";
-  previewImage.src = "";
+  previewImage.src = "data:";
 };
 
 closeImageIcon.addEventListener("click", closeImage);
@@ -156,14 +156,18 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   let today = new Date();
   const description = event.target.description.value;
+  const safariImagePath = "http://127.0.0.1:5500/index.html";
 
   newsArray.unshift({
     author: "Helcim Team",
     timestamp: today,
+    // thumbnail: `${safariImagePath ? "" : previewImage.src}`,
     thumbnail: previewImage.src,
     description: description,
     likes: 0,
   });
+
+  console.log({ previewImage });
 
   swal({
     title: "Done!",
