@@ -545,6 +545,7 @@ select {
 }
 .form__title:focus, .form__description:focus {
   outline: 0.0313rem solid #635c7f;
+  border-radius: 0.3125rem;
 }
 .form__upload {
   padding: 2rem 0;
