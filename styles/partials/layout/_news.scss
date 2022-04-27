@@ -14,7 +14,7 @@
     @include border-position(bottom, 0.0313rem, solid, $color-disabled);
     // simple tablet/desktop design
     @include desktop {
-      width: 60%;
+      width: 50%;
     }
   }
   &__thumbnail {
@@ -64,6 +64,11 @@
       padding: 0.3rem 0.3rem 0.3rem 0;
       border: none;
       color: $color-disabled;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $color-liked;
+      }
     }
     &-number {
       @include font-family-text;

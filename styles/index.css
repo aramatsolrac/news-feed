@@ -118,6 +118,9 @@ select {
   padding: 0.5rem;
   color: #635c7f;
 }
+.footer__social-icon:hover, .footer__social-icon:focus, .footer__social-icon:active {
+  transform: scale(1.1);
+}
 .footer__copyright {
   font-family: "Helvetica Neue", sans-serif;
   color: #292043;
@@ -227,7 +230,7 @@ select {
 }
 @media screen and (min-width: 1280px) {
   .news__item {
-    width: 60%;
+    width: 50%;
   }
 }
 .news__thumbnail {
@@ -298,6 +301,9 @@ select {
   padding: 0.3rem 0.3rem 0.3rem 0;
   border: none;
   color: #ced4da;
+}
+.news__like-icon:hover, .news__like-icon:focus, .news__like-icon:active {
+  color: #d22d2d;
 }
 .news__like-number {
   font-family: "Helvetica Neue", sans-serif;
@@ -373,8 +379,9 @@ select {
   align-items: center;
   cursor: pointer;
 }
-.modal__button-add:hover {
+.modal__button-add:hover, .modal__button-add:focus, .modal__button-add:active {
   background-color: #6435ed;
+  transform: scale(0.9);
 }
 .modal__button-edit {
   display: none;
@@ -388,8 +395,9 @@ select {
   align-items: center;
   cursor: pointer;
 }
-.modal__button-edit:hover {
+.modal__button-edit:hover, .modal__button-edit:focus, .modal__button-edit:active {
   background-color: #ffc46b;
+  transform: scale(0.9);
 }
 
 @-webkit-keyframes fadeIn {
@@ -442,7 +450,7 @@ select {
   color: #292043;
   cursor: pointer;
 }
-.form__buttons-close:hover {
+.form__buttons-close:hover, .form__buttons-close:focus, .form__buttons-close:active {
   text-decoration: underline;
 }
 .form__buttons-publish {
@@ -459,7 +467,7 @@ select {
   padding: 0.3rem 1rem;
   cursor: pointer;
 }
-.form__buttons-publish:hover {
+.form__buttons-publish:hover, .form__buttons-publish:focus, .form__buttons-publish:active {
   background-color: #6435ed;
 }
 .form__buttons-publish:disabled {
@@ -549,7 +557,7 @@ select {
   border-radius: 0.4rem;
   padding: 0.2rem;
 }
-.form__upload-label:hover {
+.form__upload-label:hover, .form__upload-label:focus, .form__upload-label:active {
   background-color: #ece6fd;
 }
 .form__preview {
@@ -579,7 +587,7 @@ select {
   left: 0.5rem;
   cursor: pointer;
 }
-.form__preview-close:hover {
+.form__preview-close:hover, .form__preview-close:focus, .form__preview-close:active {
   filter: brightness(0) invert(0.3);
 }
 
@@ -635,7 +643,7 @@ input[type=file i] {
   color: #6387ef;
   border-radius: 0.3125rem;
 }
-.swal-button--confirm:not([disabled]):hover {
+.swal-button--confirm:not([disabled]):hover, .swal-button--confirm:not([disabled]):focus, .swal-button--confirm:not([disabled]):active {
   background-color: #6387ef;
   color: #ebf0ff;
 }
@@ -644,7 +652,7 @@ input[type=file i] {
   background-color: rgb(231, 230, 230);
   color: rgb(143, 140, 140);
 }
-.swal-button--cancel:not([disabled]):hover {
+.swal-button--cancel:not([disabled]):hover, .swal-button--cancel:not([disabled]):focus, .swal-button--cancel:not([disabled]):active {
   background-color: rgb(143, 140, 140);
   color: rgb(231, 230, 230);
 }
@@ -653,7 +661,7 @@ input[type=file i] {
   background-color: #f4dbdf;
   color: #f27389;
 }
-.swal-button--deny:not([disabled]):hover {
+.swal-button--deny:not([disabled]):hover, .swal-button--deny:not([disabled]):focus, .swal-button--deny:not([disabled]):active {
   background-color: #f27389;
   color: #f4dbdf;
 }

@@ -10,6 +10,11 @@
     &-icon {
       padding: 0.5rem;
       color: $color-text-secondary;
+      &:hover,
+      &:focus,
+      &:active {
+        transform: scale(1.1);
+      }
     }
   }
   &__copyright {

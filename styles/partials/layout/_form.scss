@@ -10,7 +10,9 @@
     &-close {
       color: $color-text-primary;
       cursor: pointer;
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         text-decoration: underline;
       }
     }
@@ -24,7 +26,9 @@
       opacity: 1;
       padding: 0.3rem 1rem;
       cursor: pointer;
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         background-color: darken($color-text-tertiary, 8%);
       }
       &:disabled {
@@ -85,7 +89,9 @@
       cursor: pointer;
       border-radius: 0.4rem;
       padding: 0.2rem;
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         background-color: lighten($color-text-tertiary, 30%);
       }
     }
@@ -112,7 +118,9 @@
       top: 2.1rem;
       left: 0.5rem;
       cursor: pointer;
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         filter: brightness(0) invert(0.3);
       }
     }

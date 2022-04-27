@@ -22,7 +22,9 @@
   background-color: $color-confirm-secondary;
   color: $color-confirm-primary;
   border-radius: 0.3125rem;
-  &:not([disabled]):hover {
+  &:not([disabled]):hover,
+  &:not([disabled]):focus,
+  &:not([disabled]):active {
     background-color: $color-confirm-primary;
     color: $color-confirm-secondary;
   }
@@ -31,7 +33,9 @@
 .swal-button--cancel {
   background-color: $color-cancel-secondary;
   color: $color-cancel-primary;
-  &:not([disabled]):hover {
+  &:not([disabled]):hover,
+  &:not([disabled]):focus,
+  &:not([disabled]):active {
     background-color: $color-cancel-primary;
     color: $color-cancel-secondary;
   }
@@ -40,7 +44,9 @@
 .swal-button--deny {
   background-color: $color-deny-secondary;
   color: $color-deny-primary;
-  &:not([disabled]):hover {
+  &:not([disabled]):hover,
+  &:not([disabled]):focus,
+  &:not([disabled]):active {
     background-color: $color-deny-primary;
     color: $color-deny-secondary;
   }

@@ -41,16 +41,22 @@
     &-add {
       display: flex;
       @include circle-button($color-text-tertiary);
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         background-color: darken($color-text-tertiary, 8%);
+        transform: scale(0.9);
       }
     }
     &-edit {
       display: none;
 
       @include circle-button($color-edit);
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         background-color: darken($color-edit, 8%);
+        transform: scale(0.9);
       }
     }
   }
