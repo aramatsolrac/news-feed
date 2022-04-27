@@ -1,4 +1,4 @@
-# <p  align="center" style="font-size: 28px; " >The Helcim <scan style="color: #815af0">_News_.</scan></p>
+# <p  align="center" style="font-size: 28px; ">The Helcim <span style="color: #815af0;">_News_.</span></p>
 
 It is a mobile news feed of a hypothetical social network.
 
@@ -43,8 +43,7 @@ It is a mobile news feed of a hypothetical social network.
 
 ## Live
 
-- [The Helcim News]()
-  - _Note: If it does not open at the first try, give it a minute because free heroku dyno could be sleeping._
+- [The Helcim News](https://aramatsolrac.github.io/news-feed/)
 
 ### Author
 
