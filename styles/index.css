@@ -293,6 +293,8 @@ select {
 .news__like-btn {
   border: none;
   background-color: transparent;
+  padding: 0;
+  border-radius: 50%;
 }
 .news__like-icon {
   cursor: pointer;
@@ -353,6 +355,8 @@ select {
   bottom: 1.375rem;
   right: 1.375rem;
   border: none;
+  padding: 0;
+  border-radius: 50%;
   background-color: transparent;
   transition: background-color 0.5s;
 }
@@ -439,7 +443,7 @@ select {
 }
 .form__buttons-close {
   color: #292043;
-  padding: 0.5rem;
+  border-radius: 2rem;
   cursor: pointer;
 }
 .form__buttons-close:hover, .form__buttons-close:focus, .form__buttons-close:active {
