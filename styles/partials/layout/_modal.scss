@@ -32,7 +32,6 @@
     bottom: 1.375rem;
     right: 1.375rem;
     border: none;
-    border-radius: 50%;
     background-color: transparent;
     transition: background-color 0.5s;
     &-add {
@@ -47,7 +46,6 @@
     }
     &-edit {
       display: none;
-
       @include circle-button($color-edit);
       &:hover,
       &:focus,
