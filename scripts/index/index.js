@@ -33,7 +33,7 @@ const displayNews = () => {
         src="${newsItem.thumbnail}"
         alt=""
       />`
-          : ""
+          : `<p></p>`
       }
     </div>
     <div class="news__content">
