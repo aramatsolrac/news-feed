@@ -302,7 +302,7 @@ select {
   border: none;
   color: #ced4da;
 }
-.news__like-icon:hover, .news__like-icon:focus, .news__like-icon:active {
+.news__like-icon:hover {
   color: #d22d2d;
 }
 .news__like-number {
