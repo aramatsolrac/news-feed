@@ -27,7 +27,7 @@ const displayNews = () => {
     newsItemContent.innerHTML = `
     <div class="news__thumbnail">
       ${
-        newsItem.thumbnail != "data:"
+        newsItem.thumbnail != "data:,"
           ? `<img
         class="news__img"
         src="${newsItem.thumbnail}"
@@ -90,14 +90,11 @@ function updateButtonDisabledState() {
 
 // close image
 const closeImage = () => {
-  const descriptionEmpty = form.description.value == "";
-  if (descriptionEmpty) {
-    form.upload.value = "";
-    updateButtonDisabledState();
-  }
+  form.upload.value = "";
+  updateButtonDisabledState();
   previewImage.style.visibility = "hidden";
   closeImageIcon.style.visibility = "hidden";
-  previewImage.src = "data:";
+  previewImage.src = "data:,";
 };
 
 closeImageIcon.addEventListener("click", closeImage);
