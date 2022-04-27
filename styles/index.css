@@ -140,7 +140,7 @@ select {
   top: 0;
   right: 0;
   left: 0;
-  padding: 1.5rem;
+  padding: 1.1rem 1.5rem;
   background: linear-gradient(122.42deg, #faefff 21.38%, #efefff 69.42%);
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   width: 100%;
