@@ -195,7 +195,7 @@ select {
   color: #292043;
   font-weight: normal;
   line-height: 160%;
-  letter-spacing: normal;
+  letter-spacing: 0.0313rem;
   font-size: 2rem;
 }
 @media screen and (min-width: 768px) {
@@ -266,7 +266,7 @@ select {
   color: #292043;
   font-weight: normal;
   line-height: 160%;
-  letter-spacing: normal;
+  letter-spacing: 0.0313rem;
   font-size: 1rem;
 }
 .news__date {
@@ -499,7 +499,7 @@ select {
   color: #292043;
   font-weight: normal;
   line-height: 160%;
-  letter-spacing: normal;
+  letter-spacing: 0.0313rem;
   padding: 0.5rem 0;
 }
 .form__title {
@@ -598,7 +598,7 @@ input[type=file i] {
   color: #292043;
   font-weight: normal;
   line-height: 160%;
-  letter-spacing: normal;
+  letter-spacing: 0.0313rem;
 }
 
 .swal-text {
@@ -618,7 +618,7 @@ input[type=file i] {
   color: #292043;
   font-weight: normal;
   line-height: 160%;
-  letter-spacing: normal;
+  letter-spacing: 0.0313rem;
   font-size: 0.6rem;
 }
 @media screen and (min-width: 1280px) {
