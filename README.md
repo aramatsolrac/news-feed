@@ -44,7 +44,6 @@ It is a mobile news feed of a hypothetical social network.
 ## Live
 
 - [The Helcim News](https://aramatsolrac.github.io/news-feed/)
-  - _Note: If it does not open at the first try, give it a minute because free heroku dyno could be sleeping._
 
 ### Author
 
