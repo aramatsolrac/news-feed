@@ -310,6 +310,7 @@ select {
   letter-spacing: 0.0625rem;
   color: #292043;
   font-size: 0.9rem;
+  padding: 0.3rem 0 0.3rem 0.3rem;
 }
 
 .liked {
