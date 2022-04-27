@@ -53,7 +53,6 @@
   }
   &__like {
     @include flex(row, center, flex-end);
-    // padding: 0.5rem 0;
     border-radius: 50%;
     &-btn {
       border: none;
