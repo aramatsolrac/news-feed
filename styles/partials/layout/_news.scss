@@ -55,7 +55,6 @@
     @include flex(row, center, flex-end);
     padding: 0.5rem 0;
     &-btn {
-      padding: 0.3rem;
       border: none;
       background-color: transparent;
     }
@@ -64,9 +63,6 @@
       padding: 0.3rem 0.3rem 0.3rem 0;
       border: none;
       color: $color-disabled;
-      &:hover {
-        color: $color-liked;
-      }
     }
     &-number {
       @include font-family-text;
